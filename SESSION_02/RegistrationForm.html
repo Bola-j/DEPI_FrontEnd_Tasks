@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+</head>
+<body bgcolor="#f7bebe">
+
+<br><br><br><br><br>
+<center>
+    <form id="registrationForm" action="#">
+    <table border="1" bordercolor="#8b0000" bgcolor="#f5b0b0" cellpadding="8" cellspacing="0">
+        <tr>
+            <td>First Name</td>
+            <td><input type="text" name="first_name" size="25"></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><input type="text" name="last_name" size="25"></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="password" size="25"></td>
+        </tr>
+        <tr>
+            <td rowspan="2" align="center"><b>Gender</b></td>
+            <td>
+                <input type="radio" name="gender" value="male" id="male"> <label for="male">Male</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" name="gender" value="female" id="female"> <label for="female">Female</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Birthday: 
+                <select name="month">
+                    <option>[Select a Month]</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                </select>
+            </td>
+            <td>
+                <input type="text" name="day" placeholder="dd" size="2" maxlength="2">
+                <input type="text" name="year" placeholder="yyyy" size="4" maxlength="4">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <font size="+1"><b><u>Interests</u></b></font>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="interest" value="sports"> Sports</td>
+            <td><input type="checkbox" name="interest" value="music"> Music</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="interest" value="books"> Books</td>
+            <td><input type="checkbox" name="interest" value="computer_stuff"> Computer Stuff</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="interest" value="fashion"> Fashion</td>
+            <td><input type="checkbox" name="interest" value="movies"> Movies</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Submit">
+            </td>
+        </tr>
+    </table>
+    </form>
+</center>
+
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var firstName = document.querySelector('input[name="first_name"]').value;
+        var lastName = document.querySelector('input[name="last_name"]').value;
+        var password = document.querySelector('input[name="password"]').value;
+        var selectedGender = document.querySelector('input[name="gender"]:checked');
+        var gender = selectedGender ? selectedGender.value : 'Not selected';
+        var month = document.querySelector('select[name="month"]').value;
+        var day = document.querySelector('input[name="day"]').value;
+        var year = document.querySelector('input[name="year"]').value;
+
+        var selectedInterests = [];
+        var interestBoxes = document.querySelectorAll('input[name="interest"]:checked');
+        interestBoxes.forEach(function (checkbox) {
+            selectedInterests.push(checkbox.value);
+        });
+
+        var content =
+            'Registration Data\n' +
+            '=================\n' +
+            'First Name: ' + firstName + '\n' +
+            'Last Name: ' + lastName + '\n' +
+            'Password: ' + password + '\n' +
+            'Gender: ' + gender + '\n' +
+            'Birthday: ' + day + ' ' + month + ' ' + year + '\n' +
+            'Interests: ' + (selectedInterests.length ? selectedInterests.join(', ') : 'None') + '\n';
+
+        var blob = new Blob([content], { type: 'text/plain' });
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'registration-data.txt';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(link.href);
+    });
+</script>
+
+</body>
+</html>
