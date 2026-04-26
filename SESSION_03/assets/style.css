@@ -73,7 +73,8 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
-/* Hero Section */
+
+
 .hero {
     height: 100vh;
     display: flex;
@@ -149,7 +150,8 @@ nav ul li a:hover {
     50% { transform: translateY(-20px); }
 }
 
-/* Services Section */
+
+
 section {
     padding: 80px 10%;
     text-align: center;
@@ -199,7 +201,8 @@ section {
     margin-top: 40px;
 }
 
-/* Fresh Fruits Section */
+
+
 .fruit-item {
     display: flex;
     align-items: center;
@@ -231,7 +234,8 @@ section {
     max-width: 300px;
 }
 
-/* Parallax Banner */
+
+
 .parallax {
     height: 400px;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/tasty.png');
@@ -249,7 +253,8 @@ section {
     text-transform: uppercase;
 }
 
-/* Testimonial */
+
+
 .testimonial-card {
     max-width: 800px;
     margin: 0 auto;
@@ -274,7 +279,8 @@ section {
     object-fit: cover;
 }
 
-/* Contact Section */
+
+
 .contact-container {
     display: flex;
     gap: 50px;
@@ -306,7 +312,7 @@ section {
     max-width: 100%;
 }
 
-/* Footer */
+
 footer {
     background: #fdfdfd;
     padding: 80px 10% 40px;
@@ -359,7 +365,8 @@ footer {
     border-top: 1px solid #eee;
 }
 
-/* Responsive */
+
+
 @media (max-width: 992px) {
     .hero {
         flex-direction: column;
