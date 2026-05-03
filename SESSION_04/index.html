@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            display: inline-block;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            color: #333;
+            font-weight: bold;
+            padding: 10px;
+            border-bottom: 1px dashed #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>JS Lab 1</h1>
+
+        <script>
+
+            alert("Welcome to my site");
+            var userName = prompt("Please enter your name:");
+            if (userName) {
+                document.write("<h2>welcome " + userName + "</h2>");
+            }
+        </script>
+
+        <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 10px;">
+            <h3>Task 2: Sum Numbers</h3>
+            <input type="number" id="num1" placeholder="First Number" style="padding: 5px; margin: 5px;">
+            <input type="number" id="num2" placeholder="Second Number" style="padding: 5px; margin: 5px;">
+            <button onclick="handleTask2()">Calculate Sum</button>
+        </div>
+
+        <div id="result"></div>
+
+
+        <button onclick="handleTask3()" style="margin-top: 20px;">Calculate Expression </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+
+        function handleTask2() {
+            var n1 = document.getElementById('num1').value;
+            var n2 = document.getElementById('num2').value;
+
+            if (n1 !== "" && n2 !== "") {
+                var res = sumNumbers(n1, n2);
+                document.getElementById('result').innerHTML = "Result of Sum: " + res;
+            } else {
+                alert("Please enter both numbers");
+            }
+        }
+
+
+        function handleTask3() {
+            var expr = prompt("Enter math expression (Ex. 3+4*5):");
+            if (expr) {
+                calculateExpression(expr);
+            }
+        }
+    </script>
+</body>
+
+</html>
